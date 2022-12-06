@@ -15,7 +15,7 @@ namespace DataAccessLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"server=LAPTOP-2MNMTEVQ;database=LastReaFinalTaskDb;trusted_connection=true");
+            optionsBuilder.UseSqlServer(@"server=LAPTOP-2MNMTEVQ;database=ManagerAppDb;trusted_connection=true");
         }
 
 

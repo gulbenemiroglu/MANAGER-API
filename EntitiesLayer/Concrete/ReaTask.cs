@@ -20,8 +20,8 @@ namespace EntitiesLayer.Concrete
         public statusEnum Status { get; set; }
 
         public DateTime UpdatedDate { get; set; }
-   
-       
+
+        public int CommentId { get; set; }
         public ICollection<Comment?> Comments { get; set; }
 
     }
