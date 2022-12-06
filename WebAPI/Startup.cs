@@ -40,6 +40,15 @@ namespace WebAPI
             services.AddScoped<IReaTaskService, ReaTaskManager>();
             services.AddScoped<ICommentDal, CommentDal>();
             services.AddScoped<ICommentService, CommentManager>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AnyOrigin", builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +59,9 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
+                app.UseCors(builder => builder.WithOrigins("http://localhost:3000")
+                                .AllowAnyMethod()
+                                .AllowAnyHeader());
             }
 
             app.UseHttpsRedirection();

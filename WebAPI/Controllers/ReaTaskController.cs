@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
             //}
             _reaTaskService.Add(reaTask);
         }
-        [HttpDelete("Delete{id}")]
+        [HttpDelete("Delete/{id}")]
         public void Delete([FromBody] ReaTask reaTask)
         {
             //ReaTaskValidation reaTaskVal = new ReaTaskValidation();
@@ -86,12 +86,12 @@ namespace WebAPI.Controllers
           
             _reaTaskService.Update(reaTask);
         }
-        [HttpGet("getId{id}")]
+        [HttpGet("getId/{id}")]
         public ReaTask GetId(int id)
         {
             return _reaTaskService.GetId(id);
         }
-        [HttpGet("getById{id}")]
+        [HttpGet("getById/{id}")]
         public ReaTask GetById(int id)
         {
             return _reaTaskService.GetById(id);

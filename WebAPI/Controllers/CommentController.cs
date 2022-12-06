@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 namespace WebAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CommentController : Controller
     {
         ICommentService _commentService;
@@ -37,7 +39,7 @@ namespace WebAPI.Controllers
             //}
             _commentService.Add(comment);
         }
-        [HttpDelete("Delete{id}")]
+        [HttpDelete("Delete/{id}")]
         public void Delete([FromBody] Comment comment)
         {
             //CommentValidation commentVal = new CommentValidation();
@@ -77,12 +79,12 @@ namespace WebAPI.Controllers
 
             _commentService.Update(comment);
         }
-        [HttpGet("getId{id}")]
+        [HttpGet("getId/{id}")]
         public Comment GetId(int id)
         {
             return _commentService.GetId(id);
         }
-        [HttpGet("getById{id}")]
+        [HttpGet("getById/{id}")]
         public Comment GetById(int id)
         {
             return _commentService.GetById(id);
